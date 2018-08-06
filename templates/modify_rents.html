@@ -1,0 +1,77 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+   <body>
+   <h2>{{message}}</h2>
+
+   <h2>Add a rent:</h2>
+      <form action = "/add_rent" method = "POST">
+          <p>Employee IRS number <input type = "number" name = "IRS_Number" /></p>
+          <p>Customer IRS number <input type = "number" name = "Customer_IRS" /></p>
+         <p>Start date <input type = "date" name = "Start_date" /></p>
+          <p>Finish date <input type = "date" name = "Finish_date" /></p>
+          <p> Room id<input type=" number" name="RoomID" /></p>
+           <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Update existing rent:</h2>
+       <form action = "/update_rent" method = "POST">
+           <p> Rent id<input type=" number" name="RentID" /></p>
+          <p>Employee IRS number <input type = "number" name = "IRS_Number" /></p>
+           <p>Customer IRS number <input type = "number" name = "Customer_IRS" /></p>
+         <p>Start date <input type = "date" name = "Start_date" /></p>
+          <p>Finish date <input type = "date" name = "Finish_date" /></p>
+          <p> Room id<input type=" number" name="RoomID" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Delete rent:</h2>
+      <form action = "/delete_rent" method = "POST">
+          <p> Rent id<input type=" number" name="RentID" /></p>
+          <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+
+   {%if addr !=None%}
+    <table>
+        <tr>
+            <th>Rent id</th>
+            <th>Start date</th>
+            <th>Finish date</th>
+            <th>Employee IRS</th>
+            <th>Customer IRS</th>
+            <th>Room id</th>
+        </tr>
+
+        {% for group in addr %}
+            <tr>
+                <td>{{group.id}}</td>
+                <td>{{group.Start_date}}</td>
+                <td>{{group.Finish_date}}</td>
+                <td>{{group.employee_irs}}</td>
+                <td>{{group.customer_irs}}</td>
+                <td>{{group.roomID}}</td>
+            </tr>
+        {% endfor %}
+        {%endif%}
+        </body>
+{% endblock %}
+</html>

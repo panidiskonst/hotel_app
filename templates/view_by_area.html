@@ -1,0 +1,104 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<h2> {{message}}</h2>
+<h2>Room reservation</h2>
+<!--<h2>{{previous_city}}</h2>-->
+
+<form action = "/view2" method = "POST">
+    <fieldset id="stars">
+
+
+     Check in: &nbsp;<input type=date  name="start_date">&nbsp;
+        Check out:&nbsp; <input type=date  name = "finish_date" />
+        <p>Hotel group name: <input type = "text"  name = "Hotel_group_name" /><p>
+        <p>Capacity: <input type = "number"  name = "capacity" /><p>
+         <p>City <input type = "text"  name = "city" /></p>
+
+        View:&nbsp;
+        Sea <input type = "radio"  value= "sea" name = "View" />&nbsp;
+        Valley <input type = "radio"  value= "valley" name = "View" />&nbsp;
+        City center <input type = "radio"  value= "City center" name = "View" />&nbsp;
+        Mountain<input type = "radio"  value= "mountain" name = "View" />&nbsp;
+        Dont care <input type = "radio"  value= "" checked="checked" name = "View" /><p>
+
+         1 star<input type="radio" value="1" name="star">&nbsp;
+         2 star<input type="radio" value="2" name="star">&nbsp;
+         3 star<input type="radio" value="3" name="star">&nbsp;
+         4 star<input type="radio" value="4" name="star">&nbsp;
+         5 star<input type="radio" value="5" name="star">&nbsp;
+        Don't care<input type="radio" value="" checked="checked" name="star" >
+
+        <p>Expandable:&nbsp;   Yes <input type = "radio"  value= "yes" name = "expandable" />&nbsp;
+        No <input type = "radio"  value= "no" name = "expandable" />&nbsp;
+        Dont care <input type = "radio"  value= "" checked="checked" name = "expandable" /><p>
+
+        <p>Repairs needed:<p><p>   Yes <input type = "radio"  value= "yes" name = "repairs_needed" />&nbsp;
+        No <input type = "radio"  value= "no" name = "repairs_needed" />&nbsp;
+        Dont care <input type = "radio"  value= "" checked="checked" name = "repairs_needed" /><p>
+
+        <p>Price range:<p>
+     From <input type = "number"  name = "lower_range" />&nbsp;
+        To <input type = "number"  name = "upper_range" />
+        <p>Sort vy:<p>
+        <select name="sort_by">
+        <option value="Hotel_group_name">Hotel group name</option>
+        <option value="City">City</option>
+            <option value="Price">Price
+            <option value="Capacity">Room capacity</option>
+            <option value="Stars">Stars</option>
+            <option value="total rooms in area">Total rooms per city</option>
+
+
+    </select>
+         <p><input type = "submit" value = "submit" /></p>
+    </fieldset>
+</form>
+
+
+
+{%if addr !=None%}
+    <table>
+        <tr>
+
+            <th>City</th>
+            <th>Total rooms</th>
+        </tr>
+
+        {% for room in addr %}
+            <tr>
+                <td>{{room.City}}</td>
+                <td>{{room.Number_of_rooms}}</td>
+            </tr>
+        {% endfor %}
+
+    <table>
+    {%endif%}
+{%if addr == 'empty'%}
+<h2>No rooms found matching your input</h2>
+{%endif%}
+
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,59 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>{{message}}</h2>
+ <h2>Add hotel group:</h2>
+<form action="/add_hotel_group" method = "POST">
+    <p>Hotel group name <input type = "text" name = "Hotel_group_name" /> </p>
+    <input type="submit" value="Add" />
+</form>
+
+ <h2>Delete hotel group:</h2>
+      <form action = "/delete_hotel_group" method = "POST">
+          <p>Hotel group id <input type = "number" name = "id" /></p>
+         <p><input type = "submit" value = "Delete" /></p>
+      </form>
+
+
+{%if addr !=None%}
+    <table>
+        <tr>
+            <th>Hotel group id</th>
+            <th>Hotel group name</th>
+            <th>Number of hotels</th>
+        </tr>
+
+        {% for group in addr %}
+            <tr>
+                <td>{{group.id}}</td>
+                <td>{{group.Hotel_group_name}}</td>
+                <td>{{group.Number_of_hotels}}</td>
+            </tr>
+        {% endfor %}
+        {%endif%}
+        </body>
+{% endblock %}
+</html>

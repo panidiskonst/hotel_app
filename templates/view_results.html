@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<body>
+{% for item in addr %}
+<tr>
+    <td>{{item}}</td>
+
+</tr>
+{% endfor %}
+
+
+<form action="http://127.0.0.1:5000/view">
+    <input type="submit" value="Another search" />
+</form>
+
+
+<form action="http://127.0.0.1:5000/">
+    <input type="submit" value="Back to homepage" />
+</form>
+</body>
+</html>

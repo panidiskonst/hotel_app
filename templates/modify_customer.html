@@ -1,0 +1,75 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+   <body>
+   <h2>{{message}}</h2>
+
+   <h2>Add customer:</h2>
+      <form action = "/add_customer" method = "POST">
+          <p>IRS number <input type = "number" name = "IRS_Number" /></p>
+         <p>First name <input type = "text" name = "First_name" /></p>
+          <p>Last name <input type = "text" name = "Last_name" /></p>
+          <p>Social security number  <input type = "number" name = "Social_security_number" /></p>
+          <p>First Registration<input type = "date" name = "First_registration" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Update existing customer:</h2>
+       <form action = "/update_customer" method = "POST">
+         <p>IRS number <input type = "number" name = "IRS_Number" /></p>
+         <p>First name <input type = "text" name = "First_name" /></p>
+          <p>Last name <input type = "text" name = "Last_name" /></p>
+          <p>Social security number  <input type = "number" name = "Social_security_number" /></p>
+           <p>First Registration<input type = "datetime" name = "First_registration" /></p>
+
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Delete customer:</h2>
+      <form action = "/delete_customer" method = "POST">
+          <p>IRS number <input type = "number" name = "IRS_Number" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+   {%if addr !=None%}
+    <table>
+        <tr>
+            <th>IRS number</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Social security number</th>
+            <th>First registration</th>
+        </tr>
+
+        {% for group in addr %}
+            <tr>
+                <td>{{group.IRS_Number}}</td>
+                <td>{{group.First_name}}</td>
+                <td>{{group.Last_name}}</td>
+                <td>{{group.Social_security_number}}</td>
+                <td>{{group.First_registration}}</td>
+            </tr>
+        {% endfor %}
+        {%endif%}
+        </body>
+{% endblock %}
+
+</html>

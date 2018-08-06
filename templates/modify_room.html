@@ -1,0 +1,82 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+   <body>
+   <h2>{{message}}</h2>
+
+   <h2>Add room:</h2>
+      <form action = "/add_room" method = "POST">
+          <p>Hotel id <input type = "number" name = "Hotel id" /></p>
+         <p>Price <input type = "number" name = "Price" /></p>
+          <p>Capacity <input type = "number" name = "Capacity" /></p>
+          <p>Repairs needed <input type = "text" name = "Repairs needed" /></p>
+          <p>View <input type = "text" name = "View" /></p>
+          <p>Expandable <input type = "text" name = "Expandable" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Update existing room:</h2>
+       <form action = "/update_room" method = "POST">
+          <p>Room id <input type = "number" name = "Room id" /></p>
+         <p>Price <input type = "number" name = "Price" /></p>
+          <p>Capacity <input type = "number" name = "Capacity" /></p>
+          <p>Repairs needed <input type = "text" name = "Repairs needed" /></p>
+          <p>View <input type = "text" name = "View" /></p>
+          <p>Expandable <input type = "text" name = "Expandable" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Delete room:</h2>
+      <form action = "/delete_room" method = "POST">
+          <p>Room id <input type = "number" name = "Room id" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+
+      {%if addr !=None%}
+    <table>
+        <tr>
+            <th>Room id</th>
+            <th>Price</th>
+            <th>Capacity</th>
+            <th>Repairs_needed</th>
+            <th>View</th>
+            <th>Expandable</th>
+            <th>hotelID</th>
+
+        </tr>
+
+        {% for group in addr %}
+            <tr>
+                <td>{{group.id}}</td>
+                <td>{{group.Price}}</td>
+                <td>{{group.Capacity}}</td>
+                <td>{{group.Repairs_needed}}</td>
+                <td>{{group.View}}</td>
+                <td>{{group.Expandable}}</td>
+                <td>{{group.hotelID}}</td>
+
+            </tr>
+        {% endfor %}
+        {%endif%}
+        </body>
+{% endblock %}
+</html>

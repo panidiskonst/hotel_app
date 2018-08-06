@@ -1,0 +1,21 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+   <body>
+   <h2>{{message}}</h2>
+
+   <h2>Reservation:</h2>
+      <form action = "/make_reservation" method = "POST">
+          <p>IRS number <input type = "number" name = "IRS_Number" /></p>
+         <p>Start date <input type = "date" name = "Start_date" /></p>
+          <p>Finish date <input type = "date" name = "Finish_date" /></p>
+          <p>Paid on<input type = "date" name = "Paid_date" /></p>
+          Room id<input type="number" name="RoomID" value="{{roomid}}">
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+   </body>
+{% endblock %}
+
+</html>

@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<nav class="navbar navbar-expand-lg navbar bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/view2">View rooms</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Modify database
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="modify_hotel_group">Modify hotel group</a>
+            <a class="dropdown-item" href="modify_hotel_group_address">Modify hotel group address</a>
+            <a class="dropdown-item" href="modify_hotel_group_phone">Modify hotel group phones</a>
+            <a class="dropdown-item" href="modify_hotel">Modify hotel</a>
+            <a class="dropdown-item" href="modify_hotel_address">Modify hotel address</a>
+            <a class="dropdown-item" href="modify_room">Modify room</a>
+            <a class="dropdown-item" href="modify_customer">Modify customer</a>
+            <a class="dropdown-item" href="modify_employee">Modify employee</a>
+            <a class="dropdown-item" href="modify_work">Modify work</a>
+            <a class="dropdown-item" href="modify_reservation">Modify reservation</a>
+            <a class="dropdown-item" href="modify_rent">Modify rent</a>
+            <a class="dropdown-item" href="modify_payment">Modify payment</a>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+{% block content %}{% endblock %}
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</div>
+
+<!--<option value="modify Hotel group">Modify hotel group</option>-->
+        <!--<option value="modify Hotel group address">Modify hotel group address</option>-->
+        <!--<option value="modify Hotel group phone">Modify hotel group phone</option>-->
+        <!--<option value="modify Hotel">Modify hotel</option>-->
+        <!--<option value="modify Hotel address">Modify hotel address</option>-->
+        <!--<option value="modify room">Modify room</option>-->
+        <!--<option value="modify customer">Modify customer</option>-->
+        <!--<option value="modify employee">Modify employee</option>-->
+        <!--<option value="modify works">Modify employee work</option>-->
+        <!--<option value="modify reservation">Modify reservation</option>-->
+        <!--<option value="modify rents">Modify rents</option>-->
+        <!--<option value="modify payment">Modify payment</option>-->
+        <!--<option value="view2">View Rooms</option>-->

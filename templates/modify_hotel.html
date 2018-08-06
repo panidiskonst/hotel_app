@@ -1,0 +1,70 @@
+<html>
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+   <body>
+   <h2>{{message}}</h2>
+   <h2>Add hotel:</h2>
+
+      <form action = "/add_hotel" method = "POST">
+          <p>Hotel group id <input type = "number" name = "Hotel group id" /></p>
+          <p>Hotel name <input type = "text" name = "Hotel_name" /></p>
+         <p>Stars <input type = "number" name = "Stars" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Update existing hotel:</h2>
+       <form action = "/update_hotel" method = "POST">
+          <p>id of hotel   <input type = "number" name = "id" /></p>
+         <p>Stars <input type = "number" name = "Stars" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   <h2>Delete hotel:</h2>
+      <form action = "/delete_hotel" method = "POST">
+          <p>Hotel id <input type = "number" name = "id" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+
+
+
+       {%if addr !=None%}
+    <table>
+        <tr>
+            <th>Hotel id</th>
+            <th>Hotel name</th>
+            <th>Stars</th>
+            <th>Number of rooms</th>
+            <th>Hotel group id</th>
+        </tr>
+
+        {% for group in addr %}
+            <tr>
+                <td>{{group.id}}</td>
+                <td>{{group.Hotel_name}}</td>
+                <td>{{group.Stars}}</td>
+                <td>{{group.Number_of_rooms}}</td>
+                <td>{{group.hotel_groupID}}</td>
+            </tr>
+        {% endfor %}
+        {%endif%}
+        </body>
+{% endblock %}
+</html>
